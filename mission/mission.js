@@ -14,3 +14,8 @@ function changeTheme() {
         logo.setAttribute('src', 'byui-logo.webp');
     }
 }
+
+let number = 10;
+let result = number * "5"; // This will give NaN
+
+console.log(result);
