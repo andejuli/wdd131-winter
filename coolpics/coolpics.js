@@ -25,7 +25,7 @@ function handleResize() {
 // the aria and role attribute are for accessible
 function viewerTemplate(path, text) {
     let html = `
-        <div class="viewer">
+        <div class="viewer" aria-modal="true" role='dialog'>
         <button class="close-viewer">X</button>
         <img src="${path}" alt="${text}">
         </div>`;
@@ -63,4 +63,19 @@ gallery.addEventListener('click', viewHandler);
 
 
 
+// the following to events are for user friendliness and accessiblity
+window.addEventListener("click", function (event) {
+    let modal = document.querySelector('.viewer');
+    // close the modal when user clicks outside the image 
+    if (event.target === modal) {
+        modal.remove();
+    }
+});
 
+// allow the escape key to close the modal as well.
+window.addEventListener("keydown", function (event) {
+    let modal = document.querySelector('.viewer');
+    if (event.key === "Escape") {
+        modal.remove();
+    }
+});
