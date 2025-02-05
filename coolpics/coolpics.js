@@ -66,7 +66,7 @@ gallery.addEventListener('click', viewHandler);
 // the following to events are for user friendliness and accessiblity
 window.addEventListener("click", function (event) {
     let modal = document.querySelector('.viewer');
-    // close the modal when user clicks outside the image 
+    // close the modal when user clicks outside the image in the modal 
     if (event.target === modal) {
         modal.remove();
     }
