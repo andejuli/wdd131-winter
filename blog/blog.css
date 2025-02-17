@@ -27,7 +27,7 @@ main {
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
-#blog-articles {
+#blog-articles .book{
     display: grid;
     grid-template-columns: 1fr 2fr;
     
