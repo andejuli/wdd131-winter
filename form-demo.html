@@ -31,11 +31,12 @@
         <!-- Container for credit card details -->
         <p id="creditCardNumberContainer" class="hide">
           <label for="creditCardNumber">Credit Card Number:</label>
+          <!-- OR pattern="(\d{4} \d{4} \d{4} \d{4})" for credit card number with spaces between each 4 numbers -->
           <input
             type="text"
             id="creditCardNumber"
             name="creditCardNumber"
-            pattern="[0-9]{16}"
+            pattern="[0-9]{16}" 
             placeholder="Enter 16 digits"
             required
           />
