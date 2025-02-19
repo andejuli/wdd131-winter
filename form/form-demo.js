@@ -4,22 +4,25 @@ function togglePaymentDetails(e) {
     // we will also need the creditCardContainer and paypalUsernameContainer
     const creditCardContainer = document.querySelector('#creditCardNumberContainer');
     const paypalContainer = document.querySelector('#paypalUsernameContainer');
-  
-    // Hide payment containers by adding the '.hide' class to each of them
-  
-    // Disable required for payment fields...if we hide a required field the browser will throw an error when we try to submit!
-  
+    const creditInput = document.querySelector('#creditCardNumberContainer input');
+    const paypalInput = document.querySelector('#paypalUsernameContainer input');
     //element.required=false
     //elment.classList.add('hide')    .remove
   
     // Show the container based on the selected payment method, and add the required attribute back.
   
         let value = e.target.value; //theForm.paymentMethod.value
-
+        paypalContainer.classList.add('hide');
+        creditCardContainer.classList.add('hide');
+        paypalInput.required=false;  //theForm.paypalUsername.required = false;
+        creditInput.required=false;
+      
         if (value == 'creditCard') {
-            
+          creditCardContainer.classList.remove('hide');
+          creditInput.required=true;
         } else if (value == 'paypal') {
-            
+          paypalContainer.classList.remove('hide');
+          paypalInput.required=true;
         }
 
 
