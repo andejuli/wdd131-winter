@@ -1,0 +1,42 @@
+.main-nav {
+    display: flex;
+    list-style-type: none;
+    font-size: 1.5em;
+    /* gap: 40px; */
+    justify-content: flex-end;
+}
+
+.main-nav li {
+    /* padding: 20px; */
+    flex: 0 1 5em;
+}
+
+.main-nav li a{
+    color: black;
+}
+
+/* gallery flex */
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+main img {
+    width: 300px;
+    
+}
+main section {
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 700px) {
+    .main-nav {
+        flex-direction: column;
+    }
+    .main-nav li{
+        flex: 0 1 1.5em;
+    }
+}

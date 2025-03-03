@@ -1,0 +1,33 @@
+.main-nav {
+    display: flex;
+    list-style-type: none;
+    justify-content: flex-end;
+    font-size: 1.5em;
+    flex: 0 1 5em;
+    /* gap: 20px */  /* space bet links */
+}
+
+.main-nav li {
+    padding: 20px;   /* space bet links */
+    /* flex: 0 1 5em; */   /* space bet links */
+}
+
+main img {
+    width: 300px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 50px;
+}
+main section {
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 700px) {
+    .main-nav {
+        flex-direction: column;
+    }
+}
