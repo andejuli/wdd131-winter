@@ -279,5 +279,3 @@ const recipes = [
 		rating: 4
 	}
 ]
-
-export default recipes
