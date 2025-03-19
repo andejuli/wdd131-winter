@@ -278,68 +278,80 @@ const recipes = [
 		recipeYield: '12 servings',
 		rating: 4
 	}
-]
+];
 
-function getRandomRecipe(recipes){
-	const randomIndex = Math.floor(Math.random() * recipes.length);
-	const randomObject = recipes[randomIndex];
-	return randomObject;
-	
+// get a random number
+
+function getRandomRecipe(recipes) {
+    const randomIndex = Math.floor(Math.random() * recipes.length); // get 0-7 which is good for indexing .ceil or +1 for 1-8
+    console.log(randomIndex);
+    return(recipes[randomIndex]);
 }
 
 
+// put recipe on the screen
 
 function recipeTemplate(recipe){
-	console.log(recipe.tags);
+    console.log(recipe.image);
 	return `
-		<div class="recipe-image">
-			<img src="${recipe.image}" alt="${recipe.name}">
-		</div>
-		<div class="recipe-content">
-			${tagsTemplate(recipe.tags)}
-			<h2>${recipe.name}</h2>
-			<span
-				class="rating"
-				role="img"
-				aria-label="Rating: ${recipe.rating} out of 5 stars"
-			>
+    <div class="recipe-card">
+	       <div class="recipe-image">
+                <img src="${recipe.image}" alt="${recipe.name}">
+            </div>
+				<div class="recipe-content">
+				<div class="recipe__tags">
+				${tagsTemplate(recipe.tags)}
+				</div>
+                <h2>${recipe.name}</h2>
+                <span class="rating" role="img" aria-label="Rating: ${recipe.rating} out of 5 stars">
 				${ratingTemplate(recipe.rating)}
-			</span>
-			<p ${recipe.description}</p>
-		</div>
-	`
+                </span>
+                <p class="desc">${recipe.description}</p>
+            </div>
+		</div>`;
 }
 
-function tagsTemplate(tags){
-	
-	return tags.map((tag)=> 
-		
-	 `<button>${tag}</button>`).join(' ');
-};
+function tagsTemplate(tags) {
+    return tags.map((tag) => `<button>${tag}</button>`).join('')
+}
 
-function ratingTemplate(rating){
-	let html = '';
-	for (let i = 1; i <= 5; i++) {
-		if (i <= rating) {
-			html += `<span aria-hidden="true" class="icon-star">⭐</span>`
-		} else {
-			html += `<span aria-hidden="true" class="icon-star">☆</span>`
-		}	
-	}
-	return html;
-};
+function ratingTemplate(rating) {
+    // begin building an html string using the ratings HTML written earlier as a model.
+    let html = `<span
+        class="rating"
+        role="img"
+        aria-label="Rating: ${rating} out of 5 stars"
+    >`
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            html += `<span aria-hidden="true" class="icon-star">⭐</span>`
+        } else {
+            html += `<span aria-hidden="true" class="icon-star-empty">☆</span>`
+        }
+    }
+    html += `</span>`
+    return html
+}
 
+
+// Actually put recipe(s) on the screen
 function renderRecipes(recipeList){
-	let recipeContainer = document.querySelector('.recipe');
-	let html = recipeTemplate(recipeList);
-	recipeContainer.innerHTML += html;
+    console.log(recipeList);
+    let recipeContainer = document.querySelector('.recipe');
+    let html = recipeTemplate(recipeList); // call to template literal
+    console.log(html);
+    recipeContainer.innerHTML += html;
 }
 
-function init(){
-	const recipe = getRandomRecipe(recipes);
-	let recipeContainer = document.querySelector('.recipe');
-	recipeContainer.innerHTML = '';
-	renderRecipes(recipe);
+
+function init() {
+    const recipe = getRandomRecipe(recipes);
+    // clear out the previous recipe
+    let recipeContainer = document.querySelector('.recipe');
+    recipeContainer.innerHTML = '';
+    // call to a function to put a new recipe on the screen
+    renderRecipes(recipe);
 }
+
 
 init();

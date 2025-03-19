@@ -66,73 +66,68 @@ const hikes = [
       trailhead: [43.78555, -111.98996]
     }
   ];
+
+
    const simpleList = ["oranges", "grapes", "lemons", "apples", "Bananas", "watermelons", "coconuts", "broccoli", "mango"];
-   const nums = [10, 12, 8, 9];
-  
-  // 2nd to make new lower case array (.map review)
+
+   //let simpleSort = simpleList.sort();
+
    let lowerList = simpleList.map(function(fruit){
-         return fruit.toLowerCase();
+      return fruit.toLowerCase();
    })
 
-   //let simpleSort = simpleList.sort(); //1st
-
-   let simpleSort = lowerList.sort();  //2nd to resolve capitol "B" in Banana to 'b'
+   let simpleSort = lowerList.sort();
 
    console.log(simpleSort);
 
+   /* compare function sort */
 
+   const nums = [10, 12, 8, 9];
 
-   function compareFn(a,b) {
-    if (a < b) {   //reverse (a > b)  or 1
-      return -1;
-    } else if (a > b) {   //reverse (a < b)  or -1
-      return 1;
+   function compareFn(a, b) {
+    if (a < b) {
+        return -1
+    } else if (a > b) {
+        return 1
     }
-   // a must be equal to b
-   return 0;
-  }
-  const anotherSort = lowerList.sort(compareFn);
-
-  console.log(anotherSort);
-
-   /* filter */
-
-   let query = 'an';  // 'b'
-
-   function searchList(item){
-    return item.toLowerCase().includes(query.toLowerCase());
+    return 0;
    }
 
-   let filteredList = simpleList.filter(searchList)
+   console.log(nums.sort(compareFn));
 
-   console.log(filteredList);
+   let query = 'r'; // in prove use inputs .value
 
-   /* Activity 3 - sort & filter hikes */
+   function searchList(item){
+        return item.toLowerCase().includes(query.toLowerCase());
+   }
 
-   let hikeQuery = 'moderate';
-                                  // OR || AND && NOT !
-   let filteredHikes = hikes.filter(function(hike){
-       return(
+   let filterList = simpleList.filter(searchList);
+
+   console.log(filterList);
+
+   /* object property sort and filter */
+
+   function compareFn(a, b) {
+    if (a.trailhead < b.trailhead) {
+        return -1
+    } else if (a.trailhead > b.trailhead) {
+        return 1
+    }
+    return 0;
+   }
+
+   let hikeQuery = 'easy';
+
+   let filterHikes = hikes.filter(function (hike) {
+    return (
         hike.name.toLowerCase().includes(hikeQuery.toLowerCase()) ||
         hike.description.toLowerCase().includes(hikeQuery.toLowerCase()) ||
-        hike.tags.find((tag) => tag.toLowerCase().includes(hikeQuery.toLowerCase()))
-       ); 
-   })
+        hike.tags.find(tag => tag.toLowerCase().includes(hikeQuery.toLowerCase()))
+    );
+});
 
-   console.log(filteredHikes);
+console.log(filterHikes);
 
-   function compareHikes(a,b) {
-    if (a.distance < b.distance) {   //reverse (a > b)  or 1
-      return -1;
-    } else if (a.distance > b.distance) {   //reverse (a < b)  or -1
-      return 1;
-    }
-   // a must be equal to b
-   return 0;
-  }
+let sortedHikes = filterHikes.sort(compareFn);
 
-   let sortedHikes = filteredHikes.sort(compareHikes);
-
-   console.log(sortedHikes);
-
-   
+console.log(sortedHikes);
