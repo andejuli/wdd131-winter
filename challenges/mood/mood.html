@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Selector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #moodDisplay {
+      font-size: 40px;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      margin: 20px auto;
+    }
+    select {
+      padding: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Choose Your Mood</h1>
+  <select id="moodSelect">
+    <option value="">-- Select your mood --</option>
+    <option value="happy">Happy</option>
+    <option value="sad">Sad</option>
+    <option value="angry">Angry</option>
+    <option value="relaxed">Relaxed</option>
+  </select>
+  
+  <div id="moodDisplay">Your emoji will appear here!</div>
+
+  <script>
+    // const moodSelect = document.getElementById('moodSelect');
+    // const moodDisplay = document.getElementById('moodDisplay');
+
+    // moodSelect.addEventListener('change', () => {
+    //   const selectedMood = moodSelect.value;
+      
+    //   if (selectedMood === 'happy') {
+    //     moodDisplay.textContent = '😊 Philippians 4:4 Rejoice in the Lord always; again I will say, Rejoice.';
+    //     moodDisplay.style.backgroundColor = '#f0f8a0';
+    //   } else if (selectedMood === 'sad') {
+    //     moodDisplay.textContent = '😢 2 Nephi 2:25 Adam fell that men might be; and men are, that they might have joy.';
+    //     moodDisplay.style.backgroundColor = '#a0c4ff';
+    //   } else if (selectedMood === 'angry') {
+    //     moodDisplay.textContent = '😡 James 1:19–20 Let every person be quick to hear, slow to speak, slow to anger.';
+    //     moodDisplay.style.backgroundColor = '#ffadad';
+    //   } else if (selectedMood === 'relaxed') {
+    //     moodDisplay.textContent = '😌 Matthew 11:28 Come unto me, all ye that labour and are heavy laden, and I will give you rest.';
+    //     moodDisplay.style.backgroundColor = '#caffbf';
+    //   } else {
+    //     moodDisplay.textContent = 'Your emoji will appear here!';
+    //     moodDisplay.style.backgroundColor = 'transparent';
+    //   }
+    // });
+
+    const moodSelector = document.getElementById('moodSelector'); 
+    const emojiDisplay = document.getElementById('moodDisplay'); 
+    const scriptureDisplay = document.getElementById('scriptureDisplay'); 
+    // Define a mapping of moods to emojis and scriptures 
+    const moodData = { 
+        happy: { emoji: '😊’, scripture: "This is the day which the Lord hath made; we will rejoice and be glad in it." }, 
+        sad: { emoji: '😢’, scripture: "Come unto me, all ye that labour and are heavy laden, and I will give you rest." }, 
+        grateful: { emoji: '🙏’, scripture: "O give thanks unto the Lord; for he is good; for his mercy endureth for ever." }, 
+        worried: { emoji: '😟’, scripture: "Be not afraid, only believe." }, 
+        inspired: { emoji: '💡', scripture: "For behold, this is my work and my glory—to bring to pass the immortality and 			eternal life of man." } }; 
+    moodSelector.addEventListener('change', function() { 
+	const selectedMood = moodSelector.value;
+ 	if (moodData.hasOwnProperty(selectedMood)) { 
+		const data = moodData[selectedMood]; 
+		moodDisplay.textContent = data.emoji; 
+		scriptureDisplay.textContent = data.scripture;
+	 } else { 
+		// Handle the case where the user selects the default option or an invalid value 
+		moodDisplay.textContent = ''; scriptureDisplay.textContent = ''; } 
+    });
+
+  </script>
+
+</body>
+</html>
