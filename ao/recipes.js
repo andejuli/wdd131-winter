@@ -280,6 +280,9 @@ const recipes = [
 	}
 ]
 
+const fruit = ['watermelon', 'peach', 'apple', 'banana'];
+console.log(fruit[1]);
+
 function getRandomRecipe(recipes){
     const randomIndex = Math.floor(Math.random() * recipes.length);
     const randomObject = recipes[randomIndex];
