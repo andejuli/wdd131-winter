@@ -11,7 +11,7 @@ function textTemplate(pdf){
         style="border: none;"
         >
         Your browser does not support iframes.
-        </iframe>`;
+        </iframe><a href="index.html" id="back">Back</a>`;
 }
 
 function renderJsText(pdf){
