@@ -23,18 +23,11 @@ nav li a {
 nav li {
     list-style-type: none;
 }
-main {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-}
-#blog-articles .book{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    
-}
+
+
 .details {
     text-align: end;
-    border-right: 2px solid #EFC69B;
+    border-top: 2px solid #EFC69B;
     padding-right: 25px;
 }
 article {
@@ -57,6 +50,26 @@ h2 {
     color: #AF1B3F;
 }
 #filter {
-    border: 2px solid #EFC69B;
-    margin: 0;
+    display: none;
+}
+
+@media screen and (min-width: 680px) {
+    #blog-articles .book{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        
+    }
+    #filter {
+        display: block;
+        border: 2px solid #EFC69B;
+        margin: 0;
+    }
+    .details {
+        border-right: 2px solid #EFC69B;
+        border-top: none;
+    }
+    main {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
 }

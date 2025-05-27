@@ -46,7 +46,8 @@ articles.forEach(function(item){
 		<article>
 			<h2>${item.title}</h2>
 			<img src="${item.imgSrc}" alt="${item.imgAlt}">
-			<p>${item.description}</p>
+			<p>${item.description}<span> <button>Read More</button></span></p>
+			
 		</article>`
 
 	book.innerHTML = html;
