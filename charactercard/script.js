@@ -1,6 +1,6 @@
     const character = {
       name: "Snortleblat",
-      class: "Swamp Beat Diplomat",
+      class: "Swamp Beast Diplomat",
       level: 5,
       health: 100,
       image: 'https://andejuli.github.io/img/snortleblat.png',
